@@ -276,9 +276,25 @@ fun clearCage(cageList: MutableList<String>, cageNum: Int) {
  */
 fun swapCages(cageList: MutableList<String>, cageNum1: Int, cageNum2: Int) {
     println("<-> Swapping cages $cageNum1 and $cageNum2")
+    // Check if both cage numbers are valid (within the valid range)
+    if (cageNum1 < 1 || cageNum1 > NUMCAGES || cageNum2 < 1 || cageNum2 > NUMCAGES) {
+        println("ERROR SWAPPING: One or both cage numbers are out of range.")
+        println()
+        return
+    }
+
+    // Check if the cage numbers are the same
+    if (cageNum1 == cageNum2) {
+        println("ERROR SWAPPING: Cage numbers are the same. No swap needed.")
+        println()
+        return
+    }
+
+    // Swap the cages' contents
     val swappedMonkey = cageList[cageNum2 - 1]
     cageList[cageNum2 - 1] = cageList[cageNum1 - 1]
     cageList[cageNum1 - 1] = swappedMonkey
+
 }
 
 /**
