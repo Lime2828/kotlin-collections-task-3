@@ -237,13 +237,13 @@ fun emptyCount(cageList: List<String>): Int {
 fun showMonkeyCages(cageList: List<String>) {
 
     // Printing the cage numbers
-    val cageNum = cageList.indices.joinToString { "Cage ${it + 1}".padEnd(8) } // prints the cage number 8 times
+    val cageNum = cageList.indices.joinToString (" | ") { "Cage ${it + 1}".padEnd(8) } // prints the cage number 8 times
     println("+--------+".repeat(cageList.size))  // will repeat +--------+ for the amount of cages
     println("| $cageNum |") // prints cage number with | | around it
     println("+--------+".repeat(cageList.size)) // will repeat +--------+ for the amount of cages
 
     // Print the monkey to its cage or have --- if it's empty
-    val monkey = cageList.joinToString { it.padEnd(8) } // padEnd will print the monkeys 8 times
+    val monkey = cageList.joinToString (" | ") { it.padEnd(8) } // padEnd will print the monkeys 8 times
     println("| $monkey |")  // prints the monkey with | | around it
     println("+--------+".repeat(cageList.size)) // will repeat +--------+ for the amount of cages
 }
