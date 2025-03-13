@@ -235,17 +235,17 @@ fun emptyCount(cageList: List<String>): Int {
  * Tip: the String.padEnd(N) function will help you here
  */
 fun showMonkeyCages(cageList: List<String>) {
+    // creates the divider line
+    val divider = "+--------".repeat(cageList.size) + "+"
 
-    // Printing the cage numbers
-    val cageNum = cageList.indices.joinToString (" | ") { "Cage ${it + 1}".padEnd(8) } // prints the cage number 8 times
-    println("+--------+".repeat(cageList.size))  // will repeat +--------+ for the amount of cages
-    println("| $cageNum |") // prints cage number with | | around it
-    println("+--------+".repeat(cageList.size)) // will repeat +--------+ for the amount of cages
+    println(divider)
+    for (i in 0..<cageList.size) print("| Cage ${i + 1} ")
+    println("|")
 
-    // Print the monkey to its cage or have --- if it's empty
-    val monkey = cageList.joinToString (" | ") { it.padEnd(8) } // padEnd will print the monkeys 8 times
-    println("| $monkey |")  // prints the monkey with | | around it
-    println("+--------+".repeat(cageList.size)) // will repeat +--------+ for the amount of cages
+    println(divider)
+    for ((monkey, name) in cageList.withIndex()) print("| ${name.padEnd(6)} ")
+    println("|")
+    println(divider)
 }
 
 
